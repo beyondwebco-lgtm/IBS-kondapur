@@ -10,7 +10,7 @@ import ibsLogoFooter from '../assets/ibs-logo-footer.png';
  *   and bold IBS lettermark.
  * - Footer: High-resolution complete brand signature featuring the global sphere,
  *   6 language bubbles, bold IBS lettermark, "Innovative Business Solutions" title,
- *   and "Establishing Connections Across Languages and Cultures" tagline, presented
+ *   and "Establish connections across languages and cultures" tagline, presented
  *   in a high-contrast protective badge.
  *
  * @param {'header'|'footer'|'light'|'dark'} variant

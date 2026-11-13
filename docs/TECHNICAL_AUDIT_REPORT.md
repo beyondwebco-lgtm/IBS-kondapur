@@ -180,3 +180,4 @@ The automated suite (`npm run audit`) executes 35 technical checks:
    - The Founder section (`#founder`) currently displays a stylized brand initials avatar with an explicit placeholder note. When the official executive photograph of founder Abburi Tanuja is provided, it can replace the placeholder.
 3. **Dedicated Telephone Number**:
    - Telephone inquiries currently display an explicit confirmation placeholder in the contact cards. When the official PBX or corporate line is confirmed, it can be updated in `ContactSection.jsx` and `TopContactBar.jsx`.
+

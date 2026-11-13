@@ -55,7 +55,7 @@ export default function Footer({ onOpenPolicy }) {
 
             <p className="footer-desc" style={{ color: '#94a3b8', lineHeight: 1.6, fontSize: '0.88rem' }}>
               <strong>IBS – Innovative Business Solutions</strong><br />
-              "Establishing Connections Across Languages and Cultures"<br />
+              "Establish connections across languages and cultures"<br />
               Established in February 2021, IBS is a Hyderabad-based provider of professional language translation, interpretation, localization, and multilingual outsourcing solutions designed for modern enterprise agility.
             </p>
 

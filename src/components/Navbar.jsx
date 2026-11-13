@@ -115,7 +115,7 @@ export default function Navbar({ onOpenQuote, onSelectMenuService }) {
           <a href="#home" className="brand-wrapper" onClick={(e) => handleNavClick(e, '#home')} aria-label="IBS Home">
             <IBSLogo variant="header" size="default" />
             <span className="navbar-tagline ibs-brand-subtitle">
-              Establishing Connections Across Languages and Cultures
+              Establish connections across languages and cultures
             </span>
           </a>
 
@@ -237,7 +237,7 @@ export default function Navbar({ onOpenQuote, onSelectMenuService }) {
           <div className="brand-wrapper" style={{ maxWidth: 'calc(100% - 48px)' }}>
             <IBSLogo variant="header" size="compact" />
             <span className="navbar-tagline" style={{ whiteSpace: 'normal', fontSize: '0.62rem' }}>
-              Establishing Connections Across Languages and Cultures
+              Establish connections across languages and cultures
             </span>
           </div>
           <button
