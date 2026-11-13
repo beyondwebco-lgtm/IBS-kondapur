@@ -27,7 +27,7 @@ const SocialIcons = {
   )
 };
 
-export default function Footer() {
+export default function Footer({ onOpenPolicy }) {
   const handleNavClick = (e, href) => {
     e.preventDefault();
     const target = document.querySelector(href);
@@ -219,9 +219,27 @@ export default function Footer() {
             Copyright © 2026 <strong>IBS – Innovative Business Solutions</strong>. All Rights Reserved. Established February 2021.
           </div>
           <div className="footer-bottom-links">
-            <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')}>Privacy Policy</a>
-            <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')}>Terms of Service</a>
-            <a href="#contact" onClick={(e) => handleNavClick(e, '#contact')}>Confidentiality Assurance</a>
+            <button
+              type="button"
+              className="footer-policy-link"
+              onClick={() => onOpenPolicy ? onOpenPolicy('privacy') : handleNavClick(null, '#contact')}
+            >
+              Privacy Policy
+            </button>
+            <button
+              type="button"
+              className="footer-policy-link"
+              onClick={() => onOpenPolicy ? onOpenPolicy('terms') : handleNavClick(null, '#contact')}
+            >
+              Terms of Service
+            </button>
+            <button
+              type="button"
+              className="footer-policy-link"
+              onClick={() => onOpenPolicy ? onOpenPolicy('confidentiality') : handleNavClick(null, '#contact')}
+            >
+              Confidentiality Assurance
+            </button>
           </div>
         </div>
       </div>

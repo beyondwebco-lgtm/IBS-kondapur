@@ -27,8 +27,8 @@ export default function IBSLogo({ variant = 'header', size = 'default' }) {
   };
 
   const imgHeight = heights[size] || (isFooter ? 80 : 52);
-  // Aspect ratios: Header (1979x794 ~2.492:1), Footer (2172x724 = 3.0:1)
-  const aspectRatio = isFooter ? 3.0 : 1979 / 794;
+  // Aspect ratios: Header (600x241 ~2.49:1), Footer (720x240 = 3.0:1)
+  const aspectRatio = isFooter ? 3.0 : 600 / 241;
   const imgWidth = Math.round(imgHeight * aspectRatio);
 
   if (isFooter) {

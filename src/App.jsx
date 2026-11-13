@@ -15,13 +15,14 @@ import BlogSection from './components/BlogSection';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
 import BackToTop from './components/BackToTop';
-import { ServiceModal, IndustryModal, LanguagesModal, BlogModal } from './components/Modals';
+import { ServiceModal, IndustryModal, LanguagesModal, BlogModal, PolicyModal } from './components/Modals';
 import { ALL_SERVICES } from './data/servicesData';
 
 export default function App() {
   const [selectedService, setSelectedService] = useState(null);
   const [selectedIndustry, setSelectedIndustry] = useState(null);
   const [selectedBlogPost, setSelectedBlogPost] = useState(null);
+  const [selectedPolicy, setSelectedPolicy] = useState(null);
   const [languagesModalOpen, setLanguagesModalOpen] = useState(false);
 
   // Quote form pre-fill state
@@ -136,7 +137,7 @@ export default function App() {
       </main>
 
       {/* 15. Corporate Navy Footer */}
-      <Footer />
+      <Footer onOpenPolicy={(policy) => setSelectedPolicy(policy)} />
 
       {/* Floating Support & Back-to-Top Controls */}
       <WhatsAppButton />
@@ -166,6 +167,11 @@ export default function App() {
       <BlogModal
         post={selectedBlogPost}
         onClose={() => setSelectedBlogPost(null)}
+      />
+
+      <PolicyModal
+        policy={selectedPolicy}
+        onClose={() => setSelectedPolicy(null)}
       />
     </div>
   );

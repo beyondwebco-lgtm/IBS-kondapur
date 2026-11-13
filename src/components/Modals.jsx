@@ -1,8 +1,37 @@
-import React, { useState } from 'react';
-import { X, CheckCircle2, ArrowRight, ShieldCheck, Search, Briefcase, Mail, Layers } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, CheckCircle2, ArrowRight, ShieldCheck, Search, Briefcase, Mail, Layers, FileText, Lock } from 'lucide-react';
 import { ALL_SUPPORTED_LANGUAGES } from '../data/languagesData';
 
+/**
+ * Accessible Modal Behavior Hook
+ * - Closes on Escape key
+ * - Locks background body scrolling while open
+ * - Restores previous body overflow style upon unmount
+ */
+function useModalAccessibility(isOpen, onClose) {
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+}
+
 export function ServiceModal({ service, onClose, onSelectQuoteService }) {
+  useModalAccessibility(Boolean(service), onClose);
   if (!service) return null;
 
   const subservicesList = service.subservices || service.deliverables || [];
@@ -111,6 +140,7 @@ export function ServiceModal({ service, onClose, onSelectQuoteService }) {
 }
 
 export function IndustryModal({ industry, onClose, onSelectQuoteIndustry }) {
+  useModalAccessibility(Boolean(industry), onClose);
   if (!industry) return null;
 
   return (
@@ -172,6 +202,7 @@ export function IndustryModal({ industry, onClose, onSelectQuoteIndustry }) {
 }
 
 export function LanguagesModal({ isOpen, onClose, onSelectLanguage }) {
+  useModalAccessibility(isOpen, onClose);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedRegion, setSelectedRegion] = useState('All');
 
@@ -313,6 +344,7 @@ export function LanguagesModal({ isOpen, onClose, onSelectLanguage }) {
 }
 
 export function BlogModal({ post, onClose }) {
+  useModalAccessibility(Boolean(post), onClose);
   if (!post) return null;
 
   return (
@@ -343,6 +375,10 @@ export function BlogModal({ post, onClose }) {
             height={220}
             loading="lazy"
             decoding="async"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="720" height="220" viewBox="0 0 720 220"><rect width="100%" height="100%" fill="%230B2545"/><text x="50%" y="50%" font-family="system-ui" font-size="18" font-weight="700" fill="%2314B8A6" text-anchor="middle" dominant-baseline="middle">IBS Insights</text></svg>';
+            }}
             style={{ width: '100%', height: 220, objectFit: 'cover', borderRadius: 8 }}
           />
 
@@ -366,6 +402,162 @@ export function BlogModal({ post, onClose }) {
           <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: 8 }}>
             <button type="button" className="btn-yellow" onClick={onClose}>
               Close Article
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function PolicyModal({ policy, onClose }) {
+  useModalAccessibility(Boolean(policy), onClose);
+  if (!policy) return null;
+
+  const contentMap = {
+    privacy: {
+      badge: 'Data Protection & Privacy',
+      title: 'IBS Privacy Policy',
+      subtitle: 'Commitment to Corporate Confidentiality and Responsible Information Handling',
+      lastUpdated: 'February 2026',
+      icon: Lock,
+      sections: [
+        {
+          heading: '1. Information We Collect',
+          body: 'Innovative Business Solutions (IBS) collects client and contact information strictly necessary for scoping, quotation, and project execution. This includes client contact details (name, corporate email, telephone number, organization name) and source materials submitted for translation, localization, or operational processing.'
+        },
+        {
+          heading: '2. Use of Client Information',
+          body: 'Client documentation and contact details are used solely to deliver the agreed-upon professional language and outsourcing services. We do not sell, rent, commercialize, or share client data with external marketers or unauthorized third parties.'
+        },
+        {
+          heading: '3. Data Security & Storage Controls',
+          body: 'All client files, translation memories, and back-office datasets are handled through secure infrastructure with strict role-based access controls. Only authorized linguists, QA specialists, and project coordinators assigned to the specific account have access to relevant project files.'
+        },
+        {
+          heading: '4. Non-Disclosure & Confidentiality',
+          body: 'All translators, interpreters, and operational personnel working with IBS are bound by strict non-disclosure agreements (NDAs) ensuring complete confidentiality for corporate, legal, technical, and medical materials.'
+        },
+        {
+          heading: '5. Contact for Privacy Inquiries',
+          body: 'For questions regarding data protection, document deletion, or privacy protocols, reach our Hyderabad corporate office at 63 B, Sriram Nagar, Kondapur, Hyderabad – 500084, Telangana, India.'
+        }
+      ]
+    },
+    terms: {
+      badge: 'Corporate Engagement Terms',
+      title: 'IBS Terms of Service',
+      subtitle: 'Standard Operating Procedures & Service Agreement Framework',
+      lastUpdated: 'February 2026',
+      icon: FileText,
+      sections: [
+        {
+          heading: '1. Engagement Scope & Quotations',
+          body: 'All translation, interpretation, localization, multimedia, and outsourcing engagements are initiated based on a formal project scope, quotation, and approved timeline. Deliverable specifications and milestones are confirmed prior to project kickoff.'
+        },
+        {
+          heading: '2. Professional Quality Standards',
+          body: 'IBS provides high-precision human translation, linguistic QA, and business operational support in accordance with documented standard operating procedures and industry quality benchmarks.'
+        },
+        {
+          heading: '3. Intellectual Property Rights',
+          body: 'Upon full settlement of agreed project fees, all final deliverables, translated text, localized assets, and customized project materials become the exclusive intellectual property of the client.'
+        },
+        {
+          heading: '4. Client Review & Quality Revisions',
+          body: 'Clients are entitled to a defined revision review window following deliverable handover to request terminology alignment, phrasing adjustments, or scope verification consistent with the original project brief.'
+        },
+        {
+          heading: '5. Governing Law',
+          body: 'These terms are governed by and construed in accordance with the applicable laws of India, with jurisdiction in Hyderabad, Telangana.'
+        }
+      ]
+    },
+    confidentiality: {
+      badge: 'Enterprise Security Commitment',
+      title: 'IBS Confidentiality Assurance',
+      subtitle: 'Strict Non-Disclosure Protocols for Corporate Documentation',
+      lastUpdated: 'February 2026',
+      icon: ShieldCheck,
+      sections: [
+        {
+          heading: '1. Comprehensive Non-Disclosure Commitment',
+          body: 'We understand that your business documents, financial statements, intellectual property, medical records, and legal contracts require absolute discretion. Every engagement is covered by our corporate confidentiality policy and enforceable NDAs.'
+        },
+        {
+          heading: '2. Restricted Project Access Protocols',
+          body: 'Access to sensitive source assets is restricted strictly on a need-to-know basis. Translators and specialists access only the specific text files required for their assignment under encrypted transmission.'
+        },
+        {
+          heading: '3. Secure File Retention & Secure Deletion',
+          body: 'Project materials are retained only for the duration required for quality validation and project warranty, after which files are safely archived or permanently purged per client instruction.'
+        },
+        {
+          heading: '4. AI & Data Protection Safeguards',
+          body: 'Where AI-assisted technology or CAT tools are utilized, client materials are never ingested into public models or shared outside secure enterprise translation pipelines.'
+        }
+      ]
+    }
+  };
+
+  const currentPolicy = contentMap[policy] || contentMap.privacy;
+  const IconComp = currentPolicy.icon || ShieldCheck;
+
+  return (
+    <div className="modal-backdrop" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="policy-modal-title">
+      <div className="modal-dialog modal-large" onClick={(e) => e.stopPropagation()} style={{ maxWidth: 760 }}>
+        <button type="button" className="modal-close-btn" onClick={onClose} aria-label="Close policy modal">
+          <X size={20} />
+        </button>
+
+        <span className="modal-header-badge" style={{ backgroundColor: 'rgba(13, 148, 136, 0.1)', color: '#0D9488' }}>
+          <IconComp size={14} style={{ display: 'inline', marginRight: 4 }} />
+          {currentPolicy.badge}
+        </span>
+        <h2 id="policy-modal-title" className="modal-title" style={{ fontSize: '1.5rem', marginBottom: 4 }}>
+          {currentPolicy.title}
+        </h2>
+        <p className="modal-desc" style={{ fontSize: '0.88rem', color: '#64748b', marginBottom: 20 }}>
+          {currentPolicy.subtitle} • <em>Effective: {currentPolicy.lastUpdated}</em>
+        </p>
+
+        <div className="modal-body" style={{ maxHeight: '60vh', overflowY: 'auto', paddingRight: 8 }}>
+          {currentPolicy.sections.map((sec, idx) => (
+            <div key={idx} style={{ marginBottom: 18 }}>
+              <h4 style={{ fontSize: '0.98rem', fontWeight: 700, color: '#0B2545', marginBottom: 6 }}>
+                {sec.heading}
+              </h4>
+              <p style={{ fontSize: '0.9rem', color: '#334155', lineHeight: 1.65 }}>
+                {sec.body}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ marginTop: 20, paddingTop: 14, borderTop: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10 }}>
+          <span style={{ fontSize: '0.82rem', color: '#64748b' }}>
+            IBS • Kondapur, Hyderabad – 500084, Telangana, India
+          </span>
+          <div style={{ display: 'flex', gap: 10 }}>
+            <button
+              type="button"
+              className="btn-blue-outline"
+              style={{ fontSize: '0.85rem', padding: '8px 16px' }}
+              onClick={() => {
+                onClose();
+                const el = document.getElementById('contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Contact Office
+            </button>
+            <button
+              type="button"
+              className="btn-yellow"
+              style={{ fontSize: '0.85rem', padding: '8px 18px' }}
+              onClick={onClose}
+            >
+              Close
             </button>
           </div>
         </div>

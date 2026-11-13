@@ -27,6 +27,10 @@ export default function BlogSection({ onSelectPost }) {
                   height={200} 
                   loading="lazy" 
                   decoding="async" 
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200" viewBox="0 0 400 200"><rect width="100%" height="100%" fill="%230B2545"/><text x="50%" y="50%" font-family="system-ui" font-size="16" font-weight="700" fill="%2314B8A6" text-anchor="middle" dominant-baseline="middle">IBS Insights</text></svg>';
+                  }}
                 />
                 <span className="blog-category-badge" style={{ backgroundColor: '#0D9488' }}>
                   {post.category}
