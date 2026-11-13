@@ -7,7 +7,8 @@ import {
   X,
   ShieldCheck,
   Clock,
-  Building2
+  Building2,
+  MapPin
 } from 'lucide-react';
 import { MAJOR_SERVICES } from '../data/servicesData';
 import { ALL_LANGUAGE_NAMES } from '../data/languagesData';
@@ -208,8 +209,8 @@ export default function GetAQuote({
 
             <div className="quote-guarantees-list">
               <div className="guarantee-item">
-                <Clock size={20} />
-                <span>Monday – Saturday | 24/7 Support</span>
+                <FileCheck size={20} />
+                <span>Transparent Scoping &amp; Rapid Turnaround</span>
               </div>
               <div className="guarantee-item">
                 <ShieldCheck size={20} />
@@ -222,11 +223,27 @@ export default function GetAQuote({
             </div>
 
             <div className="quote-helpline-box">
-              <span className="label">Support Availability</span>
-              <span className="number" style={{ fontSize: '1.05rem', color: '#14B8A6' }}>
-                Monday – Saturday | Available 24/7
-              </span>
-              <span className="sub">63 B, Sriram Nagar, Kondapur, Hyderabad – 500084</span>
+              <div className="helpline-group">
+                <div className="helpline-header">
+                  <Clock size={16} className="helpline-icon" />
+                  <span className="label">Support Availability</span>
+                </div>
+                <div className="number">
+                  Monday – Saturday | Available 24/7
+                </div>
+              </div>
+
+              <div className="helpline-divider" />
+
+              <div className="helpline-group">
+                <div className="helpline-header">
+                  <MapPin size={16} className="helpline-icon" />
+                  <span className="label">Office Location</span>
+                </div>
+                <div className="sub">
+                  63 B, Sriram Nagar, Kondapur, Hyderabad – 500084
+                </div>
+              </div>
             </div>
           </div>
 

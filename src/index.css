@@ -1630,6 +1630,66 @@ button {
   color: var(--accent-yellow);
 }
 
+/* Quote Support & Office Info Box */
+.quote-helpline-box {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 4px;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.05);
+}
+
+.quote-helpline-box .helpline-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.quote-helpline-box .helpline-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quote-helpline-box .helpline-icon {
+  color: var(--accent-teal-light, #14B8A6);
+  flex-shrink: 0;
+}
+
+.quote-helpline-box .label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #94a3b8;
+}
+
+.quote-helpline-box .number {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #14B8A6;
+  line-height: 1.4;
+  padding-left: 24px;
+}
+
+.quote-helpline-box .helpline-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  width: 100%;
+}
+
+.quote-helpline-box .sub {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  line-height: 1.45;
+  padding-left: 24px;
+}
+
 /* Quote Form Card */
 .quote-form-card {
   background: #ffffff;
