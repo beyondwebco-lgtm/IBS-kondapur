@@ -361,7 +361,51 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 20px;
+  padding: 10px 20px;
+  transition: padding 0.25s ease;
+}
+
+.navbar.scrolled .navbar-container {
+  padding: 6px 20px;
+}
+
+/* Header Logo Sizing */
+.navbar .ibs-logo-header-img {
+  height: 76px !important;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  transition: height 0.25s ease;
+}
+
+.navbar.scrolled .ibs-logo-header-img {
+  height: 68px !important;
+}
+
+.mobile-nav-drawer .ibs-logo-header-img {
+  height: 52px !important;
+  width: auto;
+}
+
+@media (max-width: 1200px) {
+  .navbar .ibs-logo-header-img {
+    height: 68px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 8px 16px;
+  }
+  .navbar .ibs-logo-header-img {
+    height: 56px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .navbar .ibs-logo-header-img {
+    height: 48px !important;
+  }
 }
 
 .brand-wrapper {

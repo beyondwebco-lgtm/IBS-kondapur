@@ -21,12 +21,12 @@ export default function IBSLogo({ variant = 'header', size = 'default' }) {
   const logoSrc = isFooter ? ibsLogoFooter : ibsLogoHeader;
 
   const heights = {
-    compact: isFooter ? 56 : 42,
-    default: isFooter ? 80 : 54,
-    large: isFooter ? 96 : 64
+    compact: isFooter ? 56 : 52,
+    default: isFooter ? 80 : 76,
+    large: isFooter ? 96 : 88
   };
 
-  const imgHeight = heights[size] || (isFooter ? 80 : 54);
+  const imgHeight = heights[size] || (isFooter ? 80 : 76);
   // Aspect ratios: Both Header and Footer optimized to 720x240 (3.0:1)
   const aspectRatio = 3.0;
   const imgWidth = Math.round(imgHeight * aspectRatio);
@@ -34,7 +34,7 @@ export default function IBSLogo({ variant = 'header', size = 'default' }) {
   if (isFooter) {
     return (
       <div
-        className="ibs-brand-lockup ibs-dark-badge"
+        className="ibs-brand-lockup ibs-dark-badge ibs-footer-brand"
         style={{
           display: 'inline-flex',
           alignItems: 'center',
@@ -51,6 +51,7 @@ export default function IBSLogo({ variant = 'header', size = 'default' }) {
           alt="IBS – Innovative Business Solutions: Establish connections across languages and cultures"
           width={imgWidth}
           height={imgHeight}
+          className="ibs-logo-footer-img"
           style={{
             height: `${imgHeight}px`,
             width: 'auto',
@@ -67,7 +68,7 @@ export default function IBSLogo({ variant = 'header', size = 'default' }) {
 
   return (
     <div
-      className="ibs-brand-lockup"
+      className="ibs-brand-lockup ibs-header-brand"
       style={{
         display: 'inline-flex',
         alignItems: 'center',
@@ -81,6 +82,7 @@ export default function IBSLogo({ variant = 'header', size = 'default' }) {
         alt="IBS – Innovative Business Solutions: Establish connections across languages and cultures"
         width={imgWidth}
         height={imgHeight}
+        className="ibs-logo-header-img"
         style={{
           height: `${imgHeight}px`,
           width: 'auto',
