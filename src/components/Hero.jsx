@@ -188,25 +188,6 @@ export default function Hero({ onOpenQuote }) {
                   />
                 ))}
               </div>
-
-              {/* Service Labels Strip */}
-              <div className="hero-service-labels">
-                <span>Translation</span>
-                <span className="sep">|</span>
-                <span>Interpretation</span>
-                <span className="sep">|</span>
-                <span>Localization</span>
-                <span className="sep">|</span>
-                <span>Transcription</span>
-                <span className="sep">|</span>
-                <span>Subtitling</span>
-                <span className="sep">|</span>
-                <span>Outsourcing &amp; Consulting</span>
-              </div>
-
-              <p className="hero-pair-disclaimer">
-                * Illustrative project language combinations; resource availability confirmed per project scope.
-              </p>
             </div>
           </div>
         </div>
