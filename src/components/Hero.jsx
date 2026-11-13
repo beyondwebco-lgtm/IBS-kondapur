@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Globe, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 import { HERO_LANGUAGE_PAIRS } from '../data/languagesData';
+import heroBannerImg from '../assets/hero-banner.jpg';
 
 export default function Hero({ onOpenQuote }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -94,8 +95,20 @@ export default function Hero({ onOpenQuote }) {
             </div>
           </div>
 
-          {/* Hero Right: Animated Language-Pair Workflow Showcase */}
+          {/* Hero Right: Banner Image & Animated Language-Pair Workflow Showcase */}
           <div className="hero-visual">
+            <div className="hero-banner-image-card">
+              <img
+                src={heroBannerImg}
+                alt="IBS - Establishing Connections Across Languages and Cultures"
+                className="hero-banner-img"
+                width={600}
+                height={300}
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+
             <div
               className="hero-card-showcase hero-pair-showcase"
               onMouseEnter={() => setIsPaused(true)}

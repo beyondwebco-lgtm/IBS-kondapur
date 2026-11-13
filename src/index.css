@@ -848,8 +848,34 @@ button {
 .hero-visual {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.hero-banner-image-card {
+  width: 100%;
+  max-width: 520px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 16px 36px -8px rgba(11, 37, 69, 0.16);
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.hero-banner-image-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 42px -6px rgba(11, 37, 69, 0.22);
+}
+
+.hero-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .hero-card-showcase {
@@ -859,7 +885,7 @@ button {
   border: 1px solid var(--border-blue);
   box-shadow: 0 20px 45px -10px rgba(7, 85, 165, 0.15);
   width: 100%;
-  max-width: 480px;
+  max-width: 520px;
   position: relative;
 }
 
