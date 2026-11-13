@@ -343,14 +343,23 @@ button {
 
 .navbar-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 28px;
   padding: 10px 20px;
   transition: padding 0.25s ease;
 }
 
 .navbar.scrolled .navbar-container {
   padding: 6px 20px;
+}
+
+.navbar-action {
+  margin-left: auto;
+}
+
+.mobile-toggle-btn {
+  margin-left: auto;
 }
 
 /* Header Logo Sizing */
@@ -372,6 +381,9 @@ button {
 }
 
 @media (max-width: 1200px) {
+  .navbar-container {
+    gap: 20px;
+  }
   .navbar .ibs-logo-header-img {
     height: 68px !important;
   }
