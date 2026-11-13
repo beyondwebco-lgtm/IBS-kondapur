@@ -21,14 +21,14 @@ export default function IBSLogo({ variant = 'header', size = 'default' }) {
   const logoSrc = isFooter ? ibsLogoFooter : ibsLogoHeader;
 
   const heights = {
-    compact: isFooter ? 56 : 40,
-    default: isFooter ? 80 : 52,
+    compact: isFooter ? 56 : 42,
+    default: isFooter ? 80 : 54,
     large: isFooter ? 96 : 64
   };
 
-  const imgHeight = heights[size] || (isFooter ? 80 : 52);
-  // Aspect ratios: Header (600x241 ~2.49:1), Footer (720x240 = 3.0:1)
-  const aspectRatio = isFooter ? 3.0 : 600 / 241;
+  const imgHeight = heights[size] || (isFooter ? 80 : 54);
+  // Aspect ratios: Both Header and Footer optimized to 720x240 (3.0:1)
+  const aspectRatio = 3.0;
   const imgWidth = Math.round(imgHeight * aspectRatio);
 
   if (isFooter) {
@@ -48,7 +48,7 @@ export default function IBSLogo({ variant = 'header', size = 'default' }) {
       >
         <img
           src={logoSrc}
-          alt="IBS – Innovative Business Solutions"
+          alt="IBS – Innovative Business Solutions: Establish connections across languages and cultures"
           width={imgWidth}
           height={imgHeight}
           style={{
@@ -78,7 +78,7 @@ export default function IBSLogo({ variant = 'header', size = 'default' }) {
     >
       <img
         src={logoSrc}
-        alt="IBS – Innovative Business Solutions"
+        alt="IBS – Innovative Business Solutions: Establish connections across languages and cultures"
         width={imgWidth}
         height={imgHeight}
         style={{

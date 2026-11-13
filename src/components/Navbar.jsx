@@ -112,9 +112,14 @@ export default function Navbar({ onOpenQuote, onSelectMenuService }) {
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`} aria-label="Main Navigation">
         <div className="container navbar-container">
           {/* Left Side: IBS Brand Logo */}
-          <a href="#home" className="brand-wrapper" onClick={(e) => handleNavClick(e, '#home')} aria-label="IBS Home">
+          <a
+            href="#home"
+            className="brand-wrapper"
+            onClick={(e) => handleNavClick(e, '#home')}
+            aria-label="IBS – Innovative Business Solutions: Establish connections across languages and cultures"
+          >
             <IBSLogo variant="header" size="default" />
-            <span className="navbar-tagline ibs-brand-subtitle">
+            <span className="navbar-tagline sr-only">
               Establish connections across languages and cultures
             </span>
           </a>
@@ -236,7 +241,7 @@ export default function Navbar({ onOpenQuote, onSelectMenuService }) {
         <div className="mobile-nav-header">
           <div className="brand-wrapper" style={{ maxWidth: 'calc(100% - 48px)' }}>
             <IBSLogo variant="header" size="compact" />
-            <span className="navbar-tagline" style={{ whiteSpace: 'normal', fontSize: '0.62rem' }}>
+            <span className="navbar-tagline sr-only">
               Establish connections across languages and cultures
             </span>
           </div>
