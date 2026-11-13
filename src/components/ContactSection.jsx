@@ -69,27 +69,35 @@ export default function ContactSection() {
                 </div>
               </div>
 
-              {/* Direct Telephone (Placeholder) */}
+              {/* Direct Telephone & WhatsApp */}
               <div className="contact-item-card">
                 <div className="contact-icon-box" style={{ backgroundColor: '#0D9488', color: '#ffffff' }}>
                   <Phone size={22} />
                 </div>
                 <div className="contact-details">
-                  <h4>Telephone Inquiries</h4>
-                  <p style={{ color: '#0B2545', fontWeight: 600 }}>+91 (Contact Pending Confirmation)</p>
-                  <span className="note">Monday – Saturday | 24/7 Support</span>
+                  <h4>Telephone &amp; WhatsApp Inquiries</h4>
+                  <p>
+                    <a href="tel:+919502549665" style={{ color: '#0B2545', fontWeight: 700, fontSize: '1.05rem', textDecoration: 'none' }}>
+                      +91 95025 49665
+                    </a>
+                  </p>
+                  <span className="note">Monday – Saturday | Available 24/7 • Direct Calls &amp; WhatsApp</span>
                 </div>
               </div>
 
-              {/* Email Inquiries (Placeholder) */}
+              {/* Email Inquiries */}
               <div className="contact-item-card">
                 <div className="contact-icon-box" style={{ backgroundColor: '#0B2545', color: '#ffffff' }}>
                   <Mail size={22} />
                 </div>
                 <div className="contact-details">
                   <h4>Email Inquiries</h4>
-                  <p style={{ color: '#0B2545', fontWeight: 600 }}>contact@ibs-solutions.in</p>
-                  <span className="note">Official business email pending final setup</span>
+                  <p>
+                    <a href="mailto:support@innovativebusinessolutions.com" style={{ color: '#0B2545', fontWeight: 700, textDecoration: 'none' }}>
+                      support@innovativebusinessolutions.com
+                    </a>
+                  </p>
+                  <span className="note">Official business email • Mon – Sat 24/7 Response</span>
                 </div>
               </div>
             </div>

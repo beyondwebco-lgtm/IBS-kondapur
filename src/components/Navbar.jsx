@@ -114,6 +114,9 @@ export default function Navbar({ onOpenQuote, onSelectMenuService }) {
           {/* Left Side: IBS Brand Logo */}
           <a href="#home" className="brand-wrapper" onClick={(e) => handleNavClick(e, '#home')} aria-label="IBS Home">
             <IBSLogo variant="header" size="default" />
+            <span className="navbar-tagline ibs-brand-subtitle">
+              Establishing Connections Across Languages and Cultures
+            </span>
           </a>
 
           {/* Right Side Desktop Navigation */}
@@ -231,7 +234,12 @@ export default function Navbar({ onOpenQuote, onSelectMenuService }) {
         aria-label="Mobile Navigation"
       >
         <div className="mobile-nav-header">
-          <IBSLogo variant="header" size="compact" />
+          <div className="brand-wrapper" style={{ maxWidth: 'calc(100% - 48px)' }}>
+            <IBSLogo variant="header" size="compact" />
+            <span className="navbar-tagline" style={{ whiteSpace: 'normal', fontSize: '0.62rem' }}>
+              Establishing Connections Across Languages and Cultures
+            </span>
+          </div>
           <button
             type="button"
             className="modal-close-btn"

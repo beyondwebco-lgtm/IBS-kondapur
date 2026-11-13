@@ -357,6 +357,21 @@ button {
   text-decoration: none;
 }
 
+.navbar-tagline {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--accent-teal-dark, #0F766E);
+  letter-spacing: 0.25px;
+  line-height: 1.2;
+  margin-top: 3px;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.navbar.scrolled .navbar-tagline {
+  color: var(--text-muted, #475569);
+}
+
 .brand-main {
   display: flex;
   align-items: center;

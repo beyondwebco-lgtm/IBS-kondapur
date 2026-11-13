@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Mail, Calendar, Clock } from 'lucide-react';
+import { MapPin, Mail, Phone, Calendar, Clock } from 'lucide-react';
 
 export default function TopContactBar() {
   return (
@@ -11,9 +11,14 @@ export default function TopContactBar() {
             <span>Hyderabad, India – 500084</span>
           </div>
 
-          <a href="#contact" className="top-contact-item" title="Inquire with IBS">
+          <a href="tel:+919502549665" className="top-contact-item" title="Call or WhatsApp IBS at +91 95025 49665">
+            <Phone size={14} style={{ color: '#14B8A6' }} />
+            <span>+91 95025 49665</span>
+          </a>
+
+          <a href="mailto:support@innovativebusinessolutions.com" className="top-contact-item" title="Email IBS Support">
             <Mail size={14} style={{ color: '#14B8A6' }} />
-            <span>Contact &amp; Inquiries: Form Below</span>
+            <span>support@innovativebusinessolutions.com</span>
           </a>
 
           <span className="top-contact-item" style={{ cursor: 'default' }}>

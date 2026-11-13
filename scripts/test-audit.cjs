@@ -103,5 +103,23 @@ assert(cssContent.includes('@media (max-width: 440px)'), 'Small phone responsive
 assert(cssContent.includes('@media (max-width: 360px)'), 'Extra-small phone responsive breakpoint (<= 360px) configured');
 assert(cssContent.includes('prefers-reduced-motion'), 'Reduced motion accessibility query present');
 
+// 6. Contact Details & Official Branding
+console.log('\n--- 6. Contact & Official Branding Checks ---');
+const topContactContent = fs.readFileSync(path.join(srcDir, 'components', 'TopContactBar.jsx'), 'utf8');
+const footerContent = fs.readFileSync(path.join(srcDir, 'components', 'Footer.jsx'), 'utf8');
+const whatsAppContent = fs.readFileSync(path.join(srcDir, 'components', 'WhatsAppButton.jsx'), 'utf8');
+const navbarContent = fs.readFileSync(path.join(srcDir, 'components', 'Navbar.jsx'), 'utf8');
+
+assert(topContactContent.includes('support@innovativebusinessolutions.com'), 'Email configured in TopContactBar');
+assert(contactContent.includes('support@innovativebusinessolutions.com'), 'Email configured in ContactSection');
+assert(footerContent.includes('support@innovativebusinessolutions.com'), 'Email configured in Footer');
+
+assert(topContactContent.includes('95025 49665'), 'Phone configured in TopContactBar');
+assert(contactContent.includes('95025 49665'), 'Phone configured in ContactSection');
+assert(footerContent.includes('95025 49665'), 'Phone configured in Footer');
+
+assert(whatsAppContent.includes('wa.me/919502549665'), 'WhatsApp button configured with phone link');
+assert(navbarContent.includes('navbar-tagline'), 'Tagline configured in Navbar brand mark');
+
 console.log(`\n=== AUDIT RESULTS: ${passed} PASSED, ${warnings} WARNINGS, ${errors} ERRORS ===`);
 process.exit(errors > 0 ? 1 : 0);

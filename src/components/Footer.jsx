@@ -2,6 +2,7 @@ import React from 'react';
 import { 
   Mail, 
   MapPin, 
+  Phone,
   Clock, 
   ChevronRight, 
   Calendar
@@ -196,10 +197,22 @@ export default function Footer({ onOpenPolicy }) {
             </div>
 
             <div className="footer-contact-item">
+              <Phone size={18} style={{ color: '#14B8A6', flexShrink: 0 }} />
+              <div>
+                <strong>Phone &amp; WhatsApp:</strong><br />
+                <a href="tel:+919502549665" style={{ color: '#ffffff', textDecoration: 'none' }}>
+                  +91 95025 49665
+                </a>
+              </div>
+            </div>
+
+            <div className="footer-contact-item">
               <Mail size={18} style={{ color: '#14B8A6', flexShrink: 0 }} />
               <div>
                 <strong>Email:</strong><br />
-                <span>contact@ibs-solutions.in (Placeholder)</span>
+                <a href="mailto:support@innovativebusinessolutions.com" style={{ color: '#ffffff', textDecoration: 'none' }}>
+                  support@innovativebusinessolutions.com
+                </a>
               </div>
             </div>
 
